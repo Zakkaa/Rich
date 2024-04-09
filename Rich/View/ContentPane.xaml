@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Rich.View.ContentPane"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Rich.View"
+             xmlns:vm="clr-namespace:Rich.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type=vm:ContentViewModel}"
+             >
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type vm:ParametersInputViewModel}">
+            <local:ParametersInputer/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="Canvas" Background="Bisque">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Content"/>
+        <ContentControl Grid.Row="1" Content="{Binding Path=Content}" />
+        <!--<ItemsControl Grid.Row="1" ItemsSource="{Binding Path=Parameters}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="300" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas>
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="../Image/background.jpg"/>
+                        </Canvas.Background>
+                    </Canvas>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding Path=Left}"/>
+                    <Setter Property="Canvas.Top" Value="{Binding Path=Top}"/>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Path=Name}" />
+                        <TextBox Width="40" Height="20" Text="{Binding Path=Value}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
+    </Grid>
+</UserControl>
